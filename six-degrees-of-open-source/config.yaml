@@ -1,0 +1,32 @@
+input: 
+  github_events_archive: {}
+
+pipeline:
+  processors:
+    - mapping: |
+        if this.type == "PushEvent" {
+              root = deleted()
+        }
+        if this.type == "CreateEvent" {
+              root = deleted()
+        }
+    - split:
+        size: 100
+
+output:
+  opensearch:
+    urls:
+      - https://localhost:9200
+    tls:
+      enabled: true
+      root_cas_file: certs/ca/ca.crt
+    index: github_events
+    action: index
+    id: '${! json("id") }'
+    basic_auth:
+      enabled: true
+      username: elastic
+      password: elastic
+    batching:
+      count: 100
+      period: 1s
