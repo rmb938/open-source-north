@@ -16,10 +16,10 @@ pipeline:
 output:
   opensearch:
     urls:
-      - https://localhost:9200
+      - https://167.172.237.91:9200
     tls:
       enabled: true
-      root_cas_file: certs/ca/ca.crt
+      skip_cert_verify: true
     index: github_events
     action: index
     id: '${! json("id") }'

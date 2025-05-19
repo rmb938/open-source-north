@@ -103,8 +103,22 @@ services:
       timeout: 10s
       retries: 120
 
+  warpstream:
+    image: public.ecr.aws/warpstream-labs/warpstream_agent:latest
+    ports:
+      - 9092:9092
+    volumes:
+      - warpstreamdata:/ws_data
+    environment:
+      WARPSTREAM_BUCKET_URL: file:///ws_data
+      WARPSTREAM_AGENT_KEY: TODO
+      WARPSTREAM_DEFAULT_VIRTUAL_CLUSTER_ID: TODO
+      WARPSTREAM_REGION: us-east-1
+
 volumes:
   esdata01:
     driver: local
   kibanadata:
+    driver: local
+  warpstreamdata:
     driver: local
