@@ -126,8 +126,6 @@ func (i *githubArchiveInput) ReadBatch(ctx context.Context) (service.MessageBatc
 		endID = *event.ID
 
 		i.trackedBatches = append(i.trackedBatches, *event.ID)
-		// fmt.Printf("Read Event with ID %s and create time %s\n", *event.ID, event.CreatedAt.String())
-		// break
 	}
 
 	i.nextArchiveTime = i.nextArchiveTime.Add(1 * time.Hour)

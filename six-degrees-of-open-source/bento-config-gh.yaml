@@ -1,0 +1,9 @@
+input:
+  github_events_archive: {}
+
+output:
+  kafka_franz:
+    seed_brokers:
+      - localhost:9092
+    topic: github_events
+    partitioner: uniform_bytes

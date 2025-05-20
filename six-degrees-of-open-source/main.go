@@ -9,7 +9,6 @@ import (
 	"github.com/warpstreamlabs/bento/public/service"
 	// import your plugins:
 
-	_ "github.com/rmb938/open-source-north/six-degrees-of-open-source/plugins/github_events"
 	_ "github.com/rmb938/open-source-north/six-degrees-of-open-source/plugins/github_events_archive"
 )
 

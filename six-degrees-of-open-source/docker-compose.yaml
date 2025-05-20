@@ -4,7 +4,7 @@ services:
   setup:
     image: docker.elastic.co/elasticsearch/elasticsearch:9.0.0
     volumes:
-      - ./certs:/usr/share/elasticsearch/config/certs
+      - certs:/usr/share/elasticsearch/config/certs
     user: "0"
     command: >
       bash -c '
@@ -49,7 +49,7 @@ services:
         condition: service_healthy
     image: docker.elastic.co/elasticsearch/elasticsearch:9.0.0
     volumes:
-      - ./certs:/usr/share/elasticsearch/config/certs
+      - certs:/usr/share/elasticsearch/config/certs
       - esdata01:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
@@ -58,7 +58,7 @@ services:
       - cluster.name=elastic
       - cluster.initial_master_nodes=es01
       - ELASTIC_PASSWORD=elastic
-      - bootstrap.memory_lock=true
+      - bootstrap.memory_lock=false
       - xpack.security.enabled=true
       - xpack.security.http.ssl.enabled=true
       - xpack.security.http.ssl.key=certs/es01/es01.key
@@ -80,6 +80,7 @@ services:
       interval: 10s
       timeout: 10s
       retries: 120
+    mem_limit: 8000000000
 
   kibana:
     depends_on:
@@ -87,7 +88,7 @@ services:
         condition: service_healthy
     image: docker.elastic.co/kibana/kibana:9.0.0
     volumes:
-      - ./certs:/usr/share/kibana/config/certs
+      - certs:/usr/share/kibana/config/certs
       - kibanadata:/usr/share/kibana/data
     ports:
       - 5601:5601
@@ -103,22 +104,10 @@ services:
       timeout: 10s
       retries: 120
 
-  warpstream:
-    image: public.ecr.aws/warpstream-labs/warpstream_agent:latest
-    ports:
-      - 9092:9092
-    volumes:
-      - warpstreamdata:/ws_data
-    environment:
-      WARPSTREAM_BUCKET_URL: file:///ws_data
-      WARPSTREAM_AGENT_KEY: TODO
-      WARPSTREAM_DEFAULT_VIRTUAL_CLUSTER_ID: TODO
-      WARPSTREAM_REGION: us-east-1
-
 volumes:
+  certs:
+    driver: local
   esdata01:
     driver: local
   kibanadata:
-    driver: local
-  warpstreamdata:
     driver: local

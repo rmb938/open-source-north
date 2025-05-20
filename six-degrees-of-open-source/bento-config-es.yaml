@@ -1,8 +1,23 @@
-input: 
-  github_events_archive: {}
+logger:
+  level: DEBUG
+  format: logfmt
+  add_timestamp: true
+
+input:
+  kafka_franz:
+    seed_brokers:
+      - localhost:9092
+    topics:
+      - github_events
+    consumer_group: github_events
+    auto_replay_nacks: true
+    batching:
+      count: 100
+      period: 100ms
 
 pipeline:
   processors:
+    # Ignore pushes and creates for now
     - mapping: |
         if this.type == "PushEvent" {
               root = deleted()
@@ -10,13 +25,11 @@ pipeline:
         if this.type == "CreateEvent" {
               root = deleted()
         }
-    - split:
-        size: 100
 
 output:
   opensearch:
     urls:
-      - https://167.172.237.91:9200
+      - https://localhost:9200
     tls:
       enabled: true
       skip_cert_verify: true
@@ -27,6 +40,3 @@ output:
       enabled: true
       username: elastic
       password: elastic
-    batching:
-      count: 100
-      period: 1s
