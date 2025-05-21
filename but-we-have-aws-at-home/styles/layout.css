@@ -1,0 +1,10 @@
+.profile-image {
+  /* width: 100px; */
+  /* Set the desired width of the circle */
+  /* height: 100px; */
+  /* Set the desired height of the circle */
+  border-radius: 50%;
+  /* Make the corners rounded, creating a circle */
+  object-fit: cover;
+  /* Ensures the image fills the circle without distortion */
+}
