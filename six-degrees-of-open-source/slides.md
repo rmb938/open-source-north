@@ -378,12 +378,41 @@ i.nextArchiveTime = i.nextArchiveTime.Add(1 * time.Hour)
 ````
 
 ---
+---
+# I don't want to write a plugin
+I don't know Golang, I'm not a programmer
+
+```yaml
+# https://warpstreamlabs.github.io/bento/docs/components/inputs/subprocess
+input:
+  subprocess:
+    name: cat
+    args: []
+    codec: lines
+    restart_on_exit: false
+
+# https://warpstreamlabs.github.io/bento/docs/components/processors/subprocess
+pipeline:
+  processors:
+    - subprocess:
+        name: cat
+        args: []
+
+# https://warpstreamlabs.github.io/bento/docs/components/outputs/subprocess
+output:
+  subprocess:
+    name: cat
+    args: []
+    codec: lines
+```
+
+---
 layout: two-cols
 ---
 # Running Bento
 As simple as a `go run`
 
-```bash
+```bash {*|1|6|9-10}
 $ go run main.go -c bento-config-gh.yaml 
 INFO Running main config from specified file       @service=bento bento_version=v1.7.1 path=bento-config-gh.yaml
 INFO Listening for HTTP requests at: http://0.0.0.0:4195  @service=bento
@@ -401,7 +430,8 @@ Sending batch with size 233916 Start ID: 49730103801 End ID: 49732035425
 # Configuration
 Simple, Boring, Configuration
 
-```yaml
+````md magic-move {lines: true}
+```yaml  {*|2|5-9}
 input:
   github_events_archive: {}
 
@@ -412,6 +442,44 @@ output:
     topic: github_events
     partitioner: uniform_bytes
 ```
+```yaml
+input:
+  kafka_franz:
+    seed_brokers:
+      - localhost:9092
+    topics:
+      - github_events
+    consumer_group: github_events
+    auto_replay_nacks: true
+    batching:
+      count: 100
+      period: 100ms
+```
+```yaml
+pipeline:
+  processors:
+    # Ignore pushes and creates for now
+    - mapping: |
+        if this.type == "PushEvent" {
+              root = deleted()
+        }
+        if this.type == "CreateEvent" {
+              root = deleted()
+        }
+```
+```yaml
+output:
+  opensearch:
+    urls:
+      - https://localhost:9200
+    tls:
+      enabled: true
+      skip_cert_verify: true
+    index: github_events
+    action: index
+    id: '${! json("id") }'
+```
+````
 
 ---
 ---
