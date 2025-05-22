@@ -20,6 +20,10 @@ mdc: true
 # open graph
 # seoMeta:
 #  ogImage: https://cover.sli.dev
+
+fonts:
+  sans: Plus Jakarta
+  weights: 400,500,600
 ---
 
 # Six Degrees of Open Source
@@ -63,7 +67,7 @@ layout: two-cols
 # Six Degrees
 Of Developers, not Kevin Bacon
 
-Figure out how many hops away developers are from each other
+Figure out how many hops away developers are from each other.
 
 What repos do developers tend to work together on?
 
@@ -272,6 +276,14 @@ layout: two-cols
 * It is impossible for WarpStream to access your data under any circumstances.
 
 ---
+layout: center
+---
+
+![](/images/warpstream_logo.svg)
+
+[warpstream.com](https://www.warpstream.com/)
+
+---
 ---
 # Writing a Custom Bento Input Plugin
 
@@ -430,7 +442,7 @@ Sending batch with size 233916 Start ID: 49730103801 End ID: 49732035425
 # Configuration
 Simple, Boring, Configuration
 
-````md magic-move {lines: true}
+````md magic-move
 ```yaml  {*|2|5-9}
 input:
   github_events_archive: {}
