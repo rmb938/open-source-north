@@ -34,7 +34,6 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 layout: profile
-
 image: /images/saKWC52.jpg
 ---
 
@@ -47,7 +46,7 @@ Ordered my first Ubuntu liveCD soon after and forever got stuck in vim
 
 Running a homelab since 2012 when the first Raspberry Pi was released
 
-Previously helped run the infrastructure automation for a few populate Minecraft servers
+Previously helped run the infrastructure automation for a few popular Minecraft servers
 
 <br />
 
