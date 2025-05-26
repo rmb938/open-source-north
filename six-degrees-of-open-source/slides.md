@@ -254,6 +254,13 @@ Zero-Disk Kafka with no inter-zone networking
 ![](/images/with_warpstream.png)
 
 ---
+---
+# Distributed mmaps
+Minimizing S3 API Costs
+
+<img style="max-height:90%" src="/images/warpstream_mmap.png"/>
+
+---
 layout: two-cols
 ---
 # Other BYOC Products
