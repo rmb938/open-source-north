@@ -57,606 +57,684 @@ Previously helped run the infrastructure automation for a few popular Minecraft 
 
 ---
 ---
+# AWS At Home?
+It's a home lab, not an outpost
 
+![](/images/no_cloud_someone_else_computer.png)
+
+---
+layout: quote
+---
 # What is a Home Lab
+Not someone else's computer
 
-https://www.reddit.com/r/homelab/
-https://www.reddit.com/r/datahorder/
+An infrastructure sandbox that you fully manage yourself running at home.
 
-<!--
-
-TODO: this is a home lab, that's a home lab, home lab lab lab
-
--->
-
----
-transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+From Paspberry Pis, to mini-computers, used hardware, and real servers.
 
 ---
 layout: two-cols
-layoutClass: gap-16
 ---
 
-# Table of contents
+# Why Build One
+Learning, Hosting, Because I want to
 
-You can use the `Toc` component to generate a table of contents for your slides:
+It can be a place to learn about hardware or software in a low risk environment.
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
+Or maybe you want a cheap place to host your website and personal projects without the risk of a giant cloud bill.
 
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+Or maybe you are just a bit addicted to physical infrastructure and can't get enough of it at your job.
+
+Big or small, always have a goal.
 
 ::right::
 
-<Toc text-sm minDepth="1" maxDepth="2" />
+# Communities & Resources
+There's places to get ideas
+
+https://www.youtube.com/@CraftComputing
+
+https://www.youtube.com/@HardwareHaven
+
+https://www.youtube.com/@RaidOwl
+
+https://www.youtube.com/@jeffsponaugle6339
+
+https://www.reddit.com/r/homelab/
+
+https://www.reddit.com/r/datahorder/
 
 ---
-layout: image-right
-image: https://cover.sli.dev
+transition: fade
 ---
+# Big or Small it's still a home lab
+A single Raspberry Pi or multiple racks, if it's at home it's a home lab
 
-# Code
+<img style="max-height:80%" src="/images/jeff_geerling_pi_vs_n100.png"/>
 
-Use code snippets and get the highlighting directly, and even types hover!
 
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
+[Jeff Geerling Is an Intel N100 a better value than a Raspberry Pi](https://www.jeffgeerling.com/blog/2025/intel-n100-better-value-raspberry-pi)
 
 ---
-level: 2
+transition: fade
 ---
+# Big or Small it's still a home lab
+A single Raspberry Pi or multiple racks, if it's at home it's a home lab
 
-# Shiki Magic Move
+<img style="max-height:80%" src="/images/jeff_geerling_project_mini_rack.png"/>
 
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
 
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
+[Jeff Geerling Project Mini Rack](https://www.jeffgeerling.com/blog/2025/project-mini-rack-compact-and-portable-homelabs)
 
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
+---
+transition: fade
+---
+# Big or Small it's still a home lab
+A single Raspberry Pi or multiple racks, if it's at home it's a home lab
 
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+<img style="max-height:80%" src="/images/jeff_cto.png"/>
+
+
+[Jeff's CTO Laboratory](https://www.youtube.com/@jeffsponaugle6339)
+
+---
+transition: fade
+---
+# Big or Small it's still a home lab
+A single Raspberry Pi or multiple racks, if it's at home it's a home lab
+
+<img style="max-height:80%" src="/images/PXL_20250526_224801614.jpg"/>
+
+
+Or part my own, yes it's dusty ☁️
+
+---
+---
+# Staring Out and Trying new things
+
+TODO: vmware, sandwich cloud, baremetal, ect...
+
+---
+layout: quote
+---
+# Building a Cloud at Home: Part 1
+Requirements
+
+## 1. Storage & Networking
+## 2. Under-Cloud Compute
+## 3. Security
+## 4. Automation
+
+---
+---
+# Part 1: Requirements - Storage & Networking
+My requirements and hardware don't need to be yours
+
+* Fast Shared Storage
+  * Goal: 5GB/s+ Reads and Writes, faster is nice but expensive
+  * <span style="color:green">Consumer SATA SSDs - happy wallet at $100 per 1TB for Samsung 870 EVOs</span>
+  * <span style="color:green">Intel Optane Write Caches for low latency - sad wallet at $1k per 1TB used</span>
+  * Used Enterprise U.3 SSDs - happy wallet at $100 per 1TB but sad wallet at expensive motherboards and CPUs
+
+* Fast Networking
+  * Goal: Don't bottleneck storage
+  * 1 Gbs (100MB/s) is saturated by 1 hard drive (200MB/s)
+  * 10 Gbs (1GB/s) is saturated by 2 SATA SSDs (500MB/s) - good for most
+  * <span style="color:green">50 Gbs (5GB/s) is saturated by 10 SATA SSDs (500MB/s)</span>
+  * 100 Gbs (10GB/s) is saturated by 1 PCI-E 5.0 NVMe SSD (13+ GB/s) - too expensive to scale
+
+---
+---
+# Part 1: Requirements - Under-Cloud Compute
+It's the cloud the runs the cloud
+
+I'm using the [Proxmox](https://www.proxmox.com/en/) hypervisor, it runs KVM under the hood wrapped in a UI and API.
+
+There are various terraform providers and packer plugins that can interface with Proxmox.
+
+[XCP-ng](https://xcp-ng.org/) is a good alternative for a Xen based hypervisor but it needs an external orchestration service similar to VMWare VCenter.
+
+I wanted a KVM based hypervisor because it is easier to develop on locally and I just have way more experience with it.
+
+---
+---
+# Part 1: Requirements - Security
+Security is easier then you think
+
+SSH Keys, no usernames or passwords
+
+All services should use TLS, preferably TLS 1.3
+
+Prefer mTLS (mutual TLS) instead of usernames and passwords
+
+Some sort of Secrets Management Service
+
+Logging of all the things
+
+---
+layout: quote
+---
+# Part 1: Requirements - Automation
+
+## Minimal manual configurating, deploying, and poking
+
+---
+layout: quote
+---
+# Building a Cloud at Home: Part 2
+Implementing
+
+## 1. TLS
+## 2. Secrets Management
+## 3. Service Discovery
+## 4. Packer Images
+## 5. Load Balancing
+
+---
+layout: quote
+---
+# Building a Cloud at Home: Part 2 - TLS.. the journey
+This is really hard to do correctly without enterprise tools, this was the hardest part
+
+---
+layout: quote
+---
+# Smallstep - Step CA - smallstep.com/docs/step-ca
+Open Source online Certificate Authority - ACME (Let's Encrypt), X.5C, ect..
+
+---
+---
+# Step CA - Security Hardware
+We need to security store the CA keys
+
+The enterprise way is to store your Certificate Authority keys on an HSM (Hardware Security Module). The good ones are over $600, you need at least two, and they are hard to buy as a normal consumer.
+
+There are cheap alternatives like the [NitroKey HSM](https://shop.nitrokey.com/shop/nkhs2-nitrokey-hsm-2-7#attr=) but documentation is poor.
+
+What about Yubikeys? They are small, cheap, and have good documentation. They aren't made for this specific usecase but we can make it work and it'll still be secure. No keys should touch and filesystem.
+
+```python {*|307|41-50|65-75|73-77|90-99|100-109|110-118}{maxHeight:'200px'}
+#!/usr/bin/env python3
+
+import datetime
+
+import click
+import PyKCS11
+from cryptography import x509
+from cryptography.hazmat.primitives import _serialization, hashes
+from cryptography.hazmat.primitives.asymmetric import ec, utils
+from cryptography.x509.oid import ExtendedKeyUsageOID, NameOID
+from ykman import scripting as s
+from yubikit.core.smartcard import ApduError
+from yubikit.openpgp import DEFAULT_USER_PIN
+from yubikit.piv import DEFAULT_MANAGEMENT_KEY, MANAGEMENT_KEY_TYPE, SLOT, PivSession
+
+libykcs11_locations = [
+    "/usr/lib64/libykcs11.so.2",
+    "/usr/lib/x86_64-linux-gnu/libykcs11.so.2",
+    "/usr/lib/aarch64-linux-gnu/libykcs11.so.2",
+]
+
+
+class YubiKeyECPrivateKey(ec.EllipticCurvePrivateKey):
+    def __init__(self, serial: int, pin: str):
+        self._pkcs11_lib = PyKCS11.PyKCS11Lib()
+
+        lib_found = False
+        for libykcs11_location in libykcs11_locations:
+            print(f"Trying to load {libykcs11_location}")
+            try:
+                self._pkcs11_lib.load(libykcs11_location)
+                lib_found = True
+                print(f"Loaded {libykcs11_location}")
+                break
+            except PyKCS11.PyKCS11Error:
+                continue
+
+        if not lib_found:
+            raise Exception("could not find libykcs11.so.2")
+
+        for slot in self._pkcs11_lib.getSlotList(tokenPresent=True):
+            token_info = self._pkcs11_lib.getTokenInfo(slot)
+            if int(token_info.serialNumber) == serial:
+                self._pkcs11_slot = slot
+                break
+
+        self._session = self._pkcs11_lib.openSession(
+            self._pkcs11_slot, PyKCS11.CKF_SERIAL_SESSION | PyKCS11.CKF_RW_SESSION
+        )
+        self._session.login(pin)
+
+    def exchange(
+        self, algorithm: ec.ECDH, peer_public_key: ec.EllipticCurvePublicKey
+    ) -> bytes:
+        raise NotImplementedError()
+
+    def public_key(self) -> ec.EllipticCurvePublicKey:
+        """
+        The EllipticCurvePublicKey for this private key.
+        """
+        return self.certificate.public_key()
+
+    @property
+    def certificate(self) -> x509.Certificate:
+        objs = self._session.findObjects(
+            [
+                (PyKCS11.CKA_CLASS, PyKCS11.CKO_CERTIFICATE),
+                (PyKCS11.CKA_LABEL, "X.509 Certificate for Retired Key 1"),
+            ]
+        )
+        ca_cert_handle = objs[0]
+
+        attributes = self._session.getAttributeValue(
+            ca_cert_handle, [PyKCS11.CKA_VALUE], True
+        )
+
+        return x509.load_der_x509_certificate(bytes(attributes[0]))
+
+    @property
+    def curve(self) -> ec.EllipticCurve:
+        """
+        The EllipticCurve that this key is on.
+        """
+        return self.public_key().curve
+
+    @property
+    def key_size(self) -> int:
+        return self.public_key().key_size
+
+    def sign(
+        self,
+        data: bytes,
+        signature_algorithm: ec.EllipticCurveSignatureAlgorithm,
+    ) -> bytes:
+        # TODO: what to do with signature_algorithm
+        objs = self._session.findObjects(
+            [
+                (PyKCS11.CKA_CLASS, PyKCS11.CKO_PRIVATE_KEY),
+                (PyKCS11.CKA_KEY_TYPE, PyKCS11.CKK_ECDSA),
+                (PyKCS11.CKA_LABEL, "Private key for Retired Key 1"),
+            ]
+        )
+        ca_private_key_handle = objs[0]
+
+        signature = self._session.sign(
+            ca_private_key_handle,
+            data,
+            PyKCS11.Mechanism(PyKCS11.CKM_ECDSA_SHA384),
+        )
+
+        key_size_bytes = (
+            self.key_size // 8
+        )  # Calculate key size in bytes (384 // 8 = 48)
+
+        r = int.from_bytes(signature[:key_size_bytes], byteorder="big")
+        s = int.from_bytes(signature[key_size_bytes:], byteorder="big")
+
+        return utils.encode_dss_signature(r, s)
+
+    def private_numbers(self) -> ec.EllipticCurvePrivateNumbers:
+        raise NotImplementedError()
+
+    def private_bytes(
+        self,
+        encoding: _serialization.Encoding,
+        format: _serialization.PrivateFormat,
+        encryption_algorithm: _serialization.KeySerializationEncryption,
+    ) -> bytes:
+        raise NotImplementedError()
+
+
+def generate_intermediate_certificate(
+    root_certificate: x509.Certificate,
+    root_private_key: ec.EllipticCurvePrivateKey,
+) -> tuple[x509.Certificate, ec.EllipticCurvePrivateKey]:
+    print("Generating Intermediate Private Key")
+    private_key = ec.generate_private_key(ec.SECP384R1())
+
+    now = datetime.datetime.now()
+
+    subject = x509.Name(
+        [
+            x509.NameAttribute(NameOID.COMMON_NAME, "Home Lab Intermediate CA"),
+            x509.NameAttribute(NameOID.COUNTRY_NAME, "US"),
+            x509.NameAttribute(NameOID.ORGANIZATION_NAME, "Home Lab"),
+            x509.NameAttribute(NameOID.ORGANIZATIONAL_UNIT_NAME, "Step CA"),
         ]
-      }
-    }
+    )
+
+    builder = (
+        x509.CertificateBuilder()
+        .issuer_name(root_certificate.subject)
+        .subject_name(subject)
+        .not_valid_before(now)
+        .not_valid_after(now + datetime.timedelta(days=(365 * 3)))  # 3 year validity
+        .serial_number(x509.random_serial_number())
+        .public_key(private_key.public_key())
+        # Some examples of extensions to add, many more are possible:
+        .add_extension(
+            x509.BasicConstraints(ca=True, path_length=0),
+            critical=True,
+        )
+        .add_extension(
+            x509.KeyUsage(
+                digital_signature=True,
+                content_commitment=False,
+                key_encipherment=False,
+                data_encipherment=False,
+                key_agreement=False,
+                key_cert_sign=True,
+                crl_sign=True,
+                encipher_only=False,
+                decipher_only=False,
+            ),
+            critical=True,
+        )
+        .add_extension(
+            x509.ExtendedKeyUsage(
+                [
+                    ExtendedKeyUsageOID.CLIENT_AUTH,
+                    ExtendedKeyUsageOID.SERVER_AUTH,
+                ]
+            ),
+            critical=False,
+        )
+        .add_extension(
+            x509.NameConstraints(
+                permitted_subtrees=[
+                    x509.DNSName(".rmb938.me"),
+                    x509.DNSName(".tailnet-047c.ts.net"),
+                ],
+                excluded_subtrees=None,
+            ),
+            critical=True,
+        )
+        .add_extension(
+            x509.SubjectKeyIdentifier.from_public_key(private_key.public_key()),
+            critical=False,
+        )
+        .add_extension(
+            x509.AuthorityKeyIdentifier.from_issuer_public_key(
+                root_certificate.public_key()
+            ),
+            critical=False,
+        )
+        .add_extension(
+            x509.CRLDistributionPoints(
+                [
+                    x509.DistributionPoint(
+                        full_name=[
+                            x509.UniformResourceIdentifier(
+                                "http://step-ca.us-homelab1.hl.rmb938.me/1.0/crl"
+                            ),
+                        ],
+                        relative_name=None,
+                        reasons=None,
+                        crl_issuer=None,
+                    ),
+                    x509.DistributionPoint(
+                        full_name=[
+                            x509.UniformResourceIdentifier(
+                                "http://hl-us-homelab1-step-ca.tailnet-047c.ts.net/1.0/crl"
+                            ),
+                        ],
+                        relative_name=None,
+                        reasons=None,
+                        crl_issuer=None,
+                    ),
+                ]
+            ),
+            critical=False,
+        )
+    )
+
+    print("Creating Intermediate CA certificate")
+    certificate = builder.sign(
+        private_key=root_private_key,
+        algorithm=hashes.SHA384(),
+    )
+
+    return certificate, private_key
+
+
+def write_keys(
+    yubikey: s.ScriptingDevice,
+    root_certificate: x509.Certificate,
+    certificate: x509.Certificate,
+    private_key: ec.EllipticCurvePrivateKey,
+    pin: str,
+):
+    # Slot 82
+    slot = SLOT.RETIRED1
+
+    root_slot = SLOT.RETIRED2
+
+    # Establish PIV session
+    piv = PivSession(yubikey.smart_card())
+
+    # Check if a key is already stored, if so error
+    try:
+        piv.get_slot_metadata(slot)
+        print(f"Key already exists in slot {slot}.")
+        exit(1)
+    except ApduError as e:
+        pass
+
+    piv.authenticate(
+        key_type=MANAGEMENT_KEY_TYPE.AES256, management_key=bytes.fromhex(pin)
+    )
+
+    # Put the key and certificate
+    print("Writting private key and public certificate")
+    piv.put_key(slot, private_key)
+    piv.put_certificate(slot, certificate)
+    piv.put_certificate(root_slot, root_certificate)
+
+
+def next_yubikey(serials: list[int]) -> tuple[s.ScriptingDevice, list[int]]:
+    while True:
+        click.echo("Remove Yubikey and insert another, press enter to continue...")
+        input()
+        print("Connecting to new Yubikey")
+        yubikey = s.single()
+        print(f"Connected to Yubikey with Serial {yubikey.info.serial}")
+
+        # Serial is different so we have a different one inserted
+        if yubikey.info.serial not in serials:
+            serials.append(yubikey.info.serial)
+            break
+
+        # Serial is the same to log and continue
+        click.echo("The same yubikey was inserted, please insert a different one.")
+
+    return yubikey, serials
+
+
+def main():
+    print("Connecting to Root Yubikey")
+    yubikey = s.single()
+    serials = [yubikey.info.serial]
+    print(f"Connected to Root Yubikey with Serial {yubikey.info.serial}")
+
+    # Unlock with the user pin
+    root_user_pin = click.prompt(
+        "Enter user pin", default=DEFAULT_USER_PIN, hide_input=True
+    )
+    ybi_key = YubiKeyECPrivateKey(yubikey.info.serial, root_user_pin)
+
+    intermediate_certificate, intermediate_private_key = (
+        generate_intermediate_certificate(ybi_key.certificate, ybi_key)
+    )
+
+    yubikey, serials = next_yubikey(serials)
+    piv = PivSession(yubikey.smart_card())
+
+    # Unlock with the management key
+    while True:
+        try:
+            intermediate_management_pin = click.prompt(
+                "Enter management key",
+                default=DEFAULT_MANAGEMENT_KEY.hex(),
+                hide_input=True,
+            )
+            piv.authenticate(
+                key_type=MANAGEMENT_KEY_TYPE.AES256,
+                management_key=bytes.fromhex(intermediate_management_pin),
+            )
+            break
+        except (ApduError, ValueError):
+            print("Invalid Management Key, try again.")
+    write_keys(
+        yubikey,
+        ybi_key.certificate,
+        intermediate_certificate,
+        intermediate_private_key,
+        intermediate_management_pin,
+    )
+
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+---
+# Step CA - Compute Hardware
+Raspberry Pi - With Encryption?
+
+Raspberry Pi does not natively support any form of full disk encryption.
+
+[SwissBit](https://www.swissbit.com/) sells a self encrypting SD card for the Pi that encrypts based off of some hardware attributes. Very little documentation on how this actually works.
+
+[Raspberry Pi 4 UEFI Firmware](https://github.com/pftf/RPi4) to the rescue!
+
+This allows installing a normal ARM64 based operating system in the same way you would with a normal computer, no more burning Linux Images.
+
+Install Ubuntu normally with Full Disk encryption then setup a USB unlock
+key for automated unlocks.
+
+The system becomes unusable without the USB unlock key.
+
+https://github.com/rmb938/ansible_step-ca/
+
+---
+---
+# Building a Cloud at Home: Part 2 - TLS.. the journey reviewed!
+Complicated pieces for simple outcome
+
+Step CA as the certificate authority
+
+Certificate Authority keys are stored securely on hardware tokens and never touched the filesystem
+
+We have operating system with full disk encryption running on a Raspberry Pi
+
+This gives us a fully secure Let's Encrypt-like certificate authority... at least if I kept the hardware keys holding the Root CA in a physical vault, which I don't.
+
+---
+---
+# Building a Cloud at Home: Part 2 - Secrets Management &  Service Discovery
+Our cloud needs secrets and the things running on the cloud needs secrets
+
+In my opinion the go-to secrets management system in Hashicorp Vault or the MPL 2.0 Licensed OpenBao.
+
+We can program our servers to request a certficate from Step CA via ACME and use that certificate to authenticate to Vault via PKI Auth.
+
+Vault can be configured using Terraform to set policies so each server can only access the secrets it needs.
+
+The servers then can use Vault to provision themselves onto a Hashicorp Consul cluster to start advertising and discovering services.
+
+https://github.com/rmb938/ansible_hashicorp-vault
+
+https://github.com/rmb938/tf_hashicorp_vault
+
+https://github.com/rmb938/tf_hashicorp_vault_apps
+
+---
+---
+# Building a Cloud at Home: Part 2 - Packer Images
+No not the football team
+
+Hashicorp Packer can plug into every cloud provider and most hypervisors to build Operating Systems Images.
+
+Allows easy deployment of many identical VMs.
+
+Can build images using shell scripts or in my case ansible.
+
+https://github.com/hashicorp/packer-plugin-ansible
+
+https://github.com/rmb938/proxmox-images
+
+```hcl {*|2-6|33-42|45-48}{maxHeight:'200px'}
+source "proxmox-clone" "ubuntu-noble-haproxy-t1" {
+  username    = "${var.proxmox_username}"
+  token       = "${var.proxmox_token}"
+  proxmox_url = "https://${var.proxmox_hostname}:8006/api2/json"
+  node        = "freenas-pm"
+  clone_vm_id = "${var.clone_vm_id}"
+  sockets     = 1
+  cores       = 1
+  memory      = 2048
+  network_adapters {
+    bridge = "vmbr0v52"
+    model  = "virtio"
   }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
+  ipconfig {
+    ip = "dhcp"
+    ip6 = "auto"
   }
-}
-</script>
+  bios    = "ovmf"
+  machine = "q35"
+  scsi_controller = "virtio-scsi-single"
+  os           = "l26"
+  ssh_username = "ubuntu"
+  // Must have at least one tag, otherwise it shows up as `"tags": " "` in the api.
+  tags = "packer"
+  cloud_init              = true
+  cloud_init_storage_pool = "freenas-nfs"
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
 }
 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
+build {
+  sources = ["source.proxmox-clone.ubuntu-noble-haproxy-t1"]
+  // Packer setup
+  provisioner "shell" {
+    script = "../scripts/provisioner-shell-image-packer.sh"
   }
-  frame "Foo" {
-    [Frame 4]
+  provisioner "ansible" {
+    playbook_file   = "ansible/site.yaml"
+    user            = "ubuntu"
+    extra_arguments = [
+      "-v",
+      "--diff"
+    ]
+    ansible_env_vars = ["ANSIBLE_FORCE_COLOR=1"]
   }
+  // Trivy
+  provisioner "shell" {
+    script = "../scripts/provisioner-shell-image-trivy.sh"
+  }
+  // Cleanup
+  provisioner "shell" {
+    script = "../scripts/provisioner-shell-image-cleanup.sh"
+  }
+  post-processor "manifest" {}
 }
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 370,158,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="411,351,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,681,-308" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
 ```
 
 ---
-layout: center
-class: text-center
+layout: two-cols
 ---
+# Building a Cloud at Home: Part 2 - Load Balancing
+On no! My server died! Anyway...
 
-# Learn More
+Protect your services from (un-)planned interruptions by putting them behind a load balancer!
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+I am using [HAProxy](https://www.haproxy.org/) in a two tier setup for ease of use and no frills configuration.
 
-<PoweredBySlidev mt-10 />
+Automatic wildcard certificates from Step CA
+
+HAProxy is configured to load services from Consul so as new services come online and register as needing a load balancer they are automatically picked up.
+
+::right::
+
+<img src="/images/haproxy_t2.png"/>

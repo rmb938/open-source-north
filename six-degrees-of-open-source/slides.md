@@ -48,9 +48,9 @@ Staff Engineer @ Confluent - WarpStream
 
 Ordered my first Ubuntu liveCD soon after and forever got stuck in vim
 
-Running a homelab since 2012 when the first Raspberry Pi was released
-
 Previously helped run the infrastructure automation for a few popular Minecraft servers
+
+At my last job I ran hundreds of Kafka, Cassandra and Elasticsearch clusters on Kubernetes. Was the largest deployment of baremetal K8s in the mid-west, probably the US for a few months.
 
 <br />
 
