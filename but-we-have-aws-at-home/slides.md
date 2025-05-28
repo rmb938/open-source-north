@@ -151,8 +151,124 @@ Or part my own, yes it's dusty ☁️
 ---
 ---
 # Staring Out and Trying new things
+The want to be a cloud
 
-TODO: vmware, sandwich cloud, baremetal, ect...
+It all started in 2014 with a old HP Proliant DL380 G5 and a few Cisco routers and switches. They were very loud and I didn't end up using them much.
+
+Eventually I built a workstation and run VMWare vSphere ontop but it felt like something was missing... I wanted to automate something that wasn't ready to be automated.
+
+I then learned about OpenStack through an internship but I was a poor college student and couldn't afford the hardware it needed to run it in a home lab.
+
+<br />
+
+That became my goal, to run a cloud at home. A goal I wouldn't fully achieve until late 2024.
+
+---
+---
+# Building a Cloud with Sticks and Stones
+You can't make a rock think... right?
+
+VMWare in 2014-16 really did not want to be automated, there was no REST API and a barely documented SOAP API.
+
+Packer for building cloud images didn't really exist and this new thing called Terraform would never take off.
+
+The mainframe was being reinvented with containers and a friendly blue whale, who would ever use such a thing.
+
+<br />
+
+I wanted a cloud at home! But I had no idea what I was doing so I dealt with VMWare struggles.
+
+---
+layout: quote
+---
+# Building a Cloud With Smart Rocks
+They are thinking now... maybe AI will exist one day.
+
+VMWare 6.5 released late 2016 with a REST API! It wasn't good but it was something!
+
+Time to build a cloud at home and name it... Sandwich Cloud... it was from the Sandwich alignment chart meme...
+
+---
+layout: image
+
+image: /images/sandwiches.png
+
+backgroundSize: contain
+---
+
+---
+layout: quote
+---
+# It was funny at the time!
+No really...
+
+---
+---
+# Sandwiches in the Cloud! Maybe not such a great idea
+Rocks and Sandwiches thinking? Maybe we'll have flying cars next!
+
+It was fun to build and I learned alot about what not to do with a complex software project.
+
+But it wasn't want I wanted, I had to build my own tooling for everything including a metadata service, terraform providers, packer plugins and it just wasn't fun.
+
+<br />
+
+Time to rip it all out and build a baremetal as a service... that wasn't fun either!
+
+---
+---
+# Sticks to Rocks to Metal
+Silicon is a metal? Does that count?
+
+I quickly learned that consumer hardware didn't want to be automated. No matter how hard you tried it did not want automation.
+
+UEFI as a BIOS replacement was brand new and super buggy.
+
+Computers would randomly forget how to boot into an operating system.
+
+Things felt manual again.
+
+<br />
+
+~5 iterations later I had something that worked 90% of the time but that
+10% was frustraiting!
+
+---
+layout: quote
+---
+# The Dark Ages
+No sticks, no sandwiches, no metal
+
+And for many years I was stuck, I wanted a cloud at home but I could never acheieve it.
+
+I bought more hardware and got rid of others hoping one day I would figure it out.
+
+Tried many things... but a real OpenStack deployment always felt too far away...
+
+---
+---
+# Finding a new Goal
+The dark shadow of a cloud at home
+
+I tried to find a new goal.
+
+Automating Kubernetes check... but it didn't fufil the dream.
+
+Running a hypervisor cluster with KVM or Proxmox or XCP-NG check... still no dream.
+
+<br />
+
+Wasting money double check.
+
+Something had to change.
+
+---
+layout: quote
+---
+# A new Job, renewed hope!
+Rebellions are built on hope
+
+I was going to deploy OpenStack and I was going to do it right!
 
 ---
 layout: quote
@@ -178,15 +294,15 @@ My requirements and hardware don't need to be yours
 
 * Fast Networking
   * Goal: Don't bottleneck storage
-  * 1 Gbs (100MB/s) is saturated by 1 hard drive (200MB/s)
-  * 10 Gbs (1GB/s) is saturated by 2 SATA SSDs (500MB/s) - good for most
-  * <span style="color:green">50 Gbs (5GB/s) is saturated by 10 SATA SSDs (500MB/s)</span>
-  * 100 Gbs (10GB/s) is saturated by 1 PCI-E 5.0 NVMe SSD (13+ GB/s) - too expensive to scale
+  * 1 Gbs (~100MB/s) is saturated by 1 hard drive (200MB/s)
+  * 10 Gbs (~1GB/s) is saturated by 2 SATA SSDs (500MB/s) - good for most
+  * <span style="color:green">50 Gbs (~5GB/s) is saturated by 10 SATA SSDs (500MB/s)</span>
+  * 100 Gbs (~10GB/s) is saturated by 1 PCI-E 5.0 NVMe SSD (13+ GB/s) - too expensive to scale
 
 ---
 ---
 # Part 1: Requirements - Under-Cloud Compute
-It's the cloud the runs the cloud
+It's the cloud the runs the cloud, it's not a sandwich!
 
 I'm using the [Proxmox](https://www.proxmox.com/en/) hypervisor, it runs KVM under the hood wrapped in a UI and API.
 
@@ -194,12 +310,12 @@ There are various terraform providers and packer plugins that can interface with
 
 [XCP-ng](https://xcp-ng.org/) is a good alternative for a Xen based hypervisor but it needs an external orchestration service similar to VMWare VCenter.
 
-I wanted a KVM based hypervisor because it is easier to develop on locally and I just have way more experience with it.
+I wanted a KVM based hypervisor because it is easier to develop on locally and I just have way more experience with it through previous homelab experiments.
 
 ---
 ---
 # Part 1: Requirements - Security
-Security is easier then you think
+Security is easy right? The sticks and rocks think so! ... wait thinking sticks?
 
 SSH Keys, no usernames or passwords
 
@@ -209,14 +325,14 @@ Prefer mTLS (mutual TLS) instead of usernames and passwords
 
 Some sort of Secrets Management Service
 
-Logging of all the things
+Centralized Logging of all the things
 
 ---
 layout: quote
 ---
 # Part 1: Requirements - Automation
 
-## Minimal manual configurating, deploying, and poking
+## Minimal manual configuration, deploying, and poking
 
 ---
 layout: quote
@@ -234,7 +350,9 @@ Implementing
 layout: quote
 ---
 # Building a Cloud at Home: Part 2 - TLS.. the journey
-This is really hard to do correctly without enterprise tools, this was the hardest part
+Enterprise security at home
+
+This was really hard, and not for the reasons you may think
 
 ---
 layout: quote
@@ -245,11 +363,11 @@ Open Source online Certificate Authority - ACME (Let's Encrypt), X.5C, ect..
 ---
 ---
 # Step CA - Security Hardware
-We need to security store the CA keys
+We need to security store the CA keys. In a notepad, on a train, in a box with a fox?
 
 The enterprise way is to store your Certificate Authority keys on an HSM (Hardware Security Module). The good ones are over $600, you need at least two, and they are hard to buy as a normal consumer.
 
-There are cheap alternatives like the [NitroKey HSM](https://shop.nitrokey.com/shop/nkhs2-nitrokey-hsm-2-7#attr=) but documentation is poor.
+There are cheap alternatives like the [NitroKey HSM](https://shop.nitrokey.com/shop/nkhs2-nitrokey-hsm-2-7#attr=) but documentation is poor and getting it in the USA can be difficult.
 
 What about Yubikeys? They are small, cheap, and have good documentation. They aren't made for this specific usecase but we can make it work and it'll still be secure. No keys should touch and filesystem.
 
@@ -600,7 +718,7 @@ if __name__ == "__main__":
 ---
 ---
 # Step CA - Compute Hardware
-Raspberry Pi - With Encryption?
+Raspberry Pi - With Encryption? You can't encrypt a Pi!
 
 Raspberry Pi does not natively support any form of full disk encryption.
 
@@ -738,3 +856,622 @@ HAProxy is configured to load services from Consul so as new services come onlin
 ::right::
 
 <img src="/images/haproxy_t2.png"/>
+
+---
+layout: quote
+---
+# It's time for OpenStack!
+10 years later it's finally happening!
+
+---
+---
+# Doing OpenStack my way!
+Doing all the wrong things to make it better.
+
+OpenStack is built for MySQL, so let's use PostgreSQL instead!
+
+<br />
+
+OpenStack's identity service, Keystone, uses RSA and Fernet keys for user authentication and credential encryption, let's make it use HashiCorp Vault Instead!
+
+<br />
+
+The VM image storage service, Glance, is made to use local storage or object storage, naa we will use NFS.
+
+<br />
+
+Database migrations, service credentials, project setup... all typically done manually, let's automate it!
+
+---
+---
+# OpenStack & PostgreSQL
+Like peanut butter and jelly... wait that's a sandwich!
+
+For the most part this just works, it's undocumented and unsupported but it works.
+
+<br />
+
+Some OpenStack services need 1-5 lines of code patched but it was super easy until LBaaS.
+
+<br />
+
+The OpenStack LBaaS service would not run database migrations on PostgreSQL even though the application could run with it just fine.
+I had to re-write a lot of it's database migrations to make it work
+
+Patch Submitted https://review.opendev.org/c/openstack/octavia/+/948767, still not reviewed or merged 😔
+
+---
+---
+# OpenStack Keystone - No Manual RSA and Fernet Keys
+JWT Keys and Hashi Vault!
+
+```python {*|5-23|33-50|56-62}{maxHeight:'350px'}
+    issued_at = utils.isotime(subsecond=True)
+    issued_at_int = self._convert_time_string_to_int(issued_at)
+    expires_at_int = self._convert_time_string_to_int(expires_at)
+
+    payload = {
+        # public claims
+        "sub": user_id,
+        "iat": issued_at_int,
+        "exp": expires_at_int,
+        # private claims
+        "openstack_methods": methods,
+        "openstack_audit_ids": audit_ids,
+        "openstack_system": system,
+        "openstack_domain_id": domain_id,
+        "openstack_project_id": project_id,
+        "openstack_trust_id": trust_id,
+        "openstack_group_ids": federated_group_ids,
+        "openstack_idp_id": identity_provider_id,
+        "openstack_protocol_id": protocol_id,
+        "openstack_access_token_id": access_token_id,
+        "openstack_app_cred_id": app_cred_id,
+        "openstack_thumbprint": thumbprint,
+    }
+
+    # NOTE(lbragstad): Calling .items() on a dictionary in python 2 returns
+    # a list but returns an iterable in python 3. Casting to a list makes
+    # it safe to modify the dictionary while iterating over it, regardless
+    # of the python version.
+    for k, v in list(payload.items()):
+        if v is None:
+            payload.pop(k)
+
+    header = (
+        base64.urlsafe_b64encode(
+            json.dumps(
+                {
+                    "alg": "ES256",
+                    "typ": "JWT",
+                }
+            ).encode("utf-8")
+        )
+        .rstrip(b"=")
+        .decode("utf-8")
+    )
+
+    jwt_payload = (
+        base64.urlsafe_b64encode(json.dumps(payload).encode("utf-8"))
+        .rstrip(b"=")
+        .decode("utf-8")
+    )
+
+    message = base64.standard_b64encode(
+        f"{header}.{jwt_payload}".encode("utf-8")
+    ).decode("utf-8")
+
+    client = create_vault_client()
+    sign_resp = client.secrets.transit.sign_data(
+        mount_point=CONF.token_hashicorp_vault.transit_mount_point,
+        name=CONF.token_hashicorp_vault.transit_key_name,
+        hash_algorithm="sha2-256",
+        marshaling_algorithm="jws",
+        hash_input=message,
+    )
+
+    signature = sign_resp["data"]["signature"].removeprefix("vault:v1:")
+
+    token_id = f"{header}.{jwt_payload}.{signature}"
+
+    return token_id, issued_at
+```
+
+https://github.com/rmb938/openstack-keystone-hashicorp-vault-provider
+
+---
+---
+# OpenStack Glance on NFS
+It's kinda supported and mostly works
+
+1. Mount /var/lib/glance as an NFS mount
+2. Upload an Image into Glance's API
+3. ???
+4. It just works
+
+A bit surprising, I'm waiting for something to explode.
+
+---
+---
+# OpenStack Database Migrations are Scary - Automate them anyway
+No time to be scared, let's automate and hope nothing explodes
+
+```python {*|33-48|74-82|121-136}{maxHeight:'300px'}
+#! /usr/bin/python3
+
+import subprocess
+import sys
+
+import consul
+
+
+def has_cell(cell_name: str):
+    list_cells_command = [
+        "/usr/bin/nova-manage",
+        "cell_v2",
+        "list_cells",
+    ]
+
+    result = subprocess.run(list_cells_command, capture_output=True, text=True)
+
+    if result.returncode != 0:
+        print(f"Unknown Error code from list cells: {result}")
+        sys.exit(1)
+        return
+
+    if f"nova-{cell_name}" in result.stdout:
+        return True
+
+    return False
+
+
+def main():
+    lock_kv_path = "openstack-nova-controller/migration-lock"
+    api_sync_command = ["/usr/bin/nova-manage", "api_db", "sync"]
+
+    map_cell0_command = [
+        "/usr/bin/nova-manage",
+        "cell_v2",
+        "map_cell0",
+        "--database_connection",
+        "postgresql+psycopg://nova-cell0@primary.openstack-postgres.service.consul:7432/nova-cell0?sslmode=verify-full&sslrootcert=/etc/nova/postgres-server-ca.crt&sslcert=/etc/nova/postgres-user-nova-cell0.crt&sslkey=/etc/nova/postgres-user-nova-cell0.key",
+    ]
+    create_cell_cell1_command = [
+        "/usr/bin/nova-manage",
+        "cell_v2",
+        "create_cell",
+        "--name=cell1",
+        "--verbose",
+        "--database_connection",
+        "postgresql+psycopg://nova-cell1@primary.openstack-postgres.service.consul:7432/nova-cell1?sslmode=verify-full&sslrootcert=/etc/nova/postgres-server-ca.crt&sslcert=/etc/nova/postgres-user-nova-cell1.crt&sslkey=/etc/nova/postgres-user-nova-cell1.key",
+    ]
+
+    sync_command = ["/usr/bin/nova-manage", "db", "sync"]
+    online_data_migrations_command = [
+        "/usr/bin/nova-manage",
+        "db",
+        "online_data_migrations",
+    ]
+
+    consul_client = consul.Consul(
+        host="127.0.0.1",
+        port=8500,
+        consistency="consistent",
+    )
+
+    session_id = consul_client.session.create(ttl=60, behavior="delete")
+
+    try:
+        acquired = consul_client.kv.put(lock_kv_path, "locked", acquire=session_id)
+
+        if not acquired:
+            # Not exiting 1 here because it's normal
+            print(f"Could not aquire consul lock at {lock_kv_path}")
+            return
+
+        try:
+            result = subprocess.run(api_sync_command, capture_output=True, text=True)
+
+            if result.returncode != 0:
+                print(f"Unknown Error code from api_db sync: {result}")
+                sys.exit(1)
+                return
+
+            print("API Database sync successfully")
+
+            if not has_cell("cell0"):
+                result = subprocess.run(
+                    map_cell0_command, capture_output=True, text=True
+                )
+
+                if result.returncode != 0:
+                    print(f"Unknown Error code from map_cell0: {result}")
+                    sys.exit(1)
+                    return
+
+                print("mapped cell0 successfully")
+
+            if not has_cell("cell1"):
+                result = subprocess.run(
+                    create_cell_cell1_command, capture_output=True, text=True
+                )
+
+                if result.returncode != 0:
+                    print(f"Unknown Error code from create cell cell1: {result}")
+                    sys.exit(1)
+                    return
+
+                print("created cell1 successfully")
+
+            result = subprocess.run(sync_command, capture_output=True, text=True)
+
+            if result.returncode != 0:
+                print(f"Unknown Error code from sync: {result}")
+                sys.exit(1)
+                return
+
+            print("Database sync successfully")
+
+            online_data_migrations_return = None
+            while (
+                online_data_migrations_return is None
+                or online_data_migrations_return.returncode == 1
+            ):
+                result = subprocess.run(
+                    online_data_migrations_command, capture_output=True, text=True
+                )
+
+                online_data_migrations_return = result
+
+                print("Database ran online migrations")
+
+            if online_data_migrations_return.returncode != 0:
+                print(
+                    f"Unknown Error code from online migrations: {online_data_migrations_return}"
+                )
+                sys.exit(1)
+                return
+
+            print("Database migrations complete")
+        finally:
+            released = consul_client.kv.put(
+                lock_kv_path, "released", release=session_id
+            )
+            print(f"Lock released: {released}")
+    finally:
+        destroyed = consul_client.session.destroy(session_id)
+        print(f"Session {session_id} destroyed: {destroyed}")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+https://github.com/rmb938/proxmox-images/blob/main/ubuntu-noble-lts-amd64-openstack-nova/ansible/roles/nova/files/usr/local/bin/nova-migrate
+
+---
+---
+# OpenStack Service Credentials
+Services need to authenticate to each other, more python!
+
+```python {*|73-75|84-90|105-106|169-175|180-189}{maxHeight:'300px'}
+#! /usr/bin/python3
+
+
+import secrets
+import sys
+import time
+from datetime import datetime, timedelta
+
+import consul
+import hvac
+from openstack import connection
+
+
+def main():
+    openstack_region = "us-homelab1"
+    openstack_domain_name = "Default"
+    openstack_service_project_name = "service"
+
+    lock_kv_path = "openstack-keystone/service-users-token-lock"
+
+    vault_client = hvac.Client(url="http://127.0.0.1:8100")
+
+    consul_client = consul.Consul(
+        host="127.0.0.1",
+        port=8500,
+        consistency="consistent",
+    )
+
+    session_id = consul_client.session.create(ttl=120, behavior="delete")
+
+    try:
+        acquired = consul_client.kv.put(lock_kv_path, "locked", acquire=session_id)
+
+        if not acquired:
+            # Not exiting 1 here because it's normal
+            print(f"Could not aquire consul lock at {lock_kv_path}")
+            return
+
+        try:
+            admin_password_secret = vault_client.secrets.kv.v1.read_secret(
+                path=f"openstack-keystone/admin-password",
+            )
+            admin_password = admin_password_secret["data"]["password"]
+
+            conn = connection.Connection(
+                region_name=openstack_region,
+                auth={
+                    "auth_url": "https://openstack-keystone.haproxy.us-homelab1.hl.rmb938.me",  # TODO: just use local hostname
+                    "username": "admin",
+                    "password": admin_password,
+                    "project_name": "admin",
+                    "project_domain_name": openstack_domain_name,
+                    "user_domain_name": openstack_domain_name,
+                },
+                identity_interface="internal",
+            )
+
+            domain = conn.identity.find_domain(openstack_domain_name)
+            if not domain:
+                print(f"Could not find domain '{openstack_domain_name}'")
+                sys.exit(1)
+                return
+
+            project = conn.identity.find_project(openstack_service_project_name)
+            if not project:
+                print(
+                    f"Project '{openstack_service_project_name}' does not exist, creating..."
+                )
+                project = conn.identity.create_project(
+                    name=openstack_service_project_name, domain_id=domain.id
+                )
+
+            response_expected_users = vault_client.secrets.kv.v1.list_secrets(
+                path="openstack-keystone/expected-service-users/"
+            )
+
+            raw_expected_users = response_expected_users["data"]["keys"]
+            for raw_expected_user in raw_expected_users:
+                openstack_user_name = raw_expected_user
+
+                user = conn.identity.find_user(openstack_user_name, domain_id=domain.id)
+                if not user:
+                    print(f"User '{openstack_user_name}' does not exist, creating...")
+                    user = conn.identity.create_user(
+                        name=openstack_user_name,
+                        password=secrets.token_hex(128),
+                        domain_id=domain.id,
+                        enabled=True,
+                    )
+
+                # TODO: idk if we still need admin
+                # openstack documentation isn't clear
+                admin_role = conn.identity.find_role("admin")
+                if not admin_role:
+                    print(f"Could not find admin role")
+                    sys.exit(1)
+                    return
+
+                service_role = conn.identity.find_role("service")
+                if not service_role:
+                    print(f"Could not find service role")
+                    sys.exit(1)
+                    return
+
+                conn.identity.assign_project_role_to_user(project, user, admin_role)
+                conn.identity.assign_project_role_to_user(project, user, service_role)
+
+                now = datetime.now()
+
+                # Doing 7 days for now, it's long enough to not rotate constantly
+                # But short enough to notice any issues
+                credential_valid_length = timedelta(days=7)
+
+                # The minimum amount of length left before we cut a new cred
+                credential_min_length = credential_valid_length / 3
+
+                existing_application_credentials = (
+                    conn.identity.application_credentials(user=user)
+                )
+
+                print(
+                    f"Finding if we need to rotate application credentials for user '{openstack_user_name}'"
+                )
+                newest_expires_at = now
+                for eac in existing_application_credentials:
+
+                    # If eac has no expires at skip it
+                    if eac.expires_at is None:
+                        continue
+
+                    eac_expires_at = datetime.fromisoformat(eac.expires_at)
+
+                    # If eac expires before the newest skip it
+                    if eac_expires_at < newest_expires_at:
+                        continue
+
+                    # We are the newest so set it
+                    newest_expires_at = eac_expires_at
+
+                # If we are not going to expire soon, don't create a new credential
+                if (newest_expires_at - now) > credential_min_length:
+                    print(
+                        f"User '{openstack_user_name}' does not need a new credential yet."
+                    )
+                    continue
+
+                # Change the password to something random while we are here
+                print(f"Rotating Password for '{openstack_user_name}'")
+                new_password = secrets.token_hex(128)
+                conn.identity.update_user(
+                    user,
+                    password=new_password,
+                )
+
+                # Sleeping due to token revocation race with connect_as
+                time.sleep(1)
+
+                expires_at = now + credential_valid_length
+
+                # Connect as because only the owning user can create app creds
+                # Admin user can't create it for them.
+                connect_as = conn.connect_as(
+                    username=openstack_user_name,
+                    password=new_password,
+                    project_name="service",
+                )
+
+                print(f"Rotating application credentials for '{openstack_user_name}'")
+                application_credential = (
+                    connect_as.identity.create_application_credential(
+                        user=user,
+                        name=f"service_creds_{time.time()}",
+                        expires_at=expires_at.strftime("%Y-%m-%dT%H:%M:%S"),
+                    )
+                )
+
+                print(
+                    f"Writting application credentials to vault for '{openstack_user_name}'"
+                )
+                vault_client.secrets.kv.v1.create_or_update_secret(
+                    path=f"openstack-keystone/service-users/{openstack_user_name}",
+                    secret={
+                        "application_credential_id": application_credential.id,
+                        "application_credential_secret": application_credential.secret,
+                        "created_at": now.strftime("%Y-%m-%dT%H:%M:%S"),
+                        "expires_at": expires_at.strftime("%Y-%m-%dT%H:%M:%S"),
+                        "ttl": "3600",  # Hint for lease_duration to check every 1 hour
+                    },
+                )
+
+        finally:
+            released = consul_client.kv.put(
+                lock_kv_path, "released", release=session_id
+            )
+            print(f"Lock released: {released}")
+    finally:
+        destroyed = consul_client.session.destroy(session_id)
+        print(f"Session {session_id} destroyed: {destroyed}")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+https://github.com/rmb938/proxmox-images/blob/main/ubuntu-noble-lts-amd64-openstack-keystone/ansible/roles/keystone/files/usr/local/bin/keystone-service-users-token
+
+---
+---
+# Monitoring OpenStack
+What monitoring? No such thing!
+
+Monitoring PostgreSQL, HAProxy, RabbitMQ is pretty easy. Prometheus exporters exist and have lots of pre-made Grafana dashboards.
+
+<br />
+
+Monitoring OpenStack services themselves are hard. Most are missing health probes, there's little to no built in metrics. Logs are good but sometimes lack detail.
+
+<br />
+
+The best way to monitor OpenStack is to use canary services that constantly poke at the API and perform various actions. Which means more custom tools that I have not built yet!
+
+---
+---
+# OpenStack Networking is a Nightmare
+Software without documentation is not a fun time
+
+These days the standard SDN (software defined network) tooling that OpenStack uses is OVS (OpenVSwitch) and OVN (Open Virtual Network).
+
+OVS uses a custom database called OVSDB that clusters weirdly, natively supports mTLS but doesn't validate hostnames, and works fine with DNS hostnames until it doesn't.
+
+If you are going to deploy OVSDB in a cluster use IP addresses not hostnames, only use IPv4 and use TLS but the CN and SANs don't matter.
+
+ChatGPT is not helpful parsing the mailing lists or documentation and you will constantly not know why it's not working until you find the one undocumented configuration item.
+
+Make sure you have at least 3 compute hosts, with only two network failover doesn't happen. You don't need an odd number, just more then 2.
+
+---
+layout: quote
+---
+# Screenshots!
+This is actually real, it's not theory!
+
+---
+layout: image
+
+image: /images/Screenshot_20250527_220915.png
+
+backgroundSize: contain
+---
+
+---
+layout: image
+
+image: /images/Screenshot_20250527_220756.png
+
+backgroundSize: contain
+---
+
+---
+layout: image
+
+image: /images/Screenshot_20250527_221050.png
+
+backgroundSize: contain
+---
+
+---
+layout: image
+
+image: /images/Screenshot_20250527_221139.png
+
+backgroundSize: contain
+---
+
+---
+layout: image
+
+image: /images/Screenshot_20250429_111132.png
+
+backgroundSize: contain
+---
+
+---
+---
+# Learnings & Challanges
+What did you learn at school today?
+
+Bootstrapping a cloud at home can be hard if you don't know where to start. What tools and systems to use can be overwhelming and you will get stuck in decision paralysis.
+
+OpenStack as a whole can be fairly straight forward to install and setup, where it is difficult is it's new features and limited documentation.
+
+Networking is one of the harder problems within OpenStack, the community has a standard and preferred solution but it's badly documented even though it's been production ready for many years.
+
+<br />
+
+Building a cloud at home is fun, there are lots of interesting challanges and weird issues.
+
+---
+---
+# What's Next?
+I get to use my cloud for something, what is the something? Who knows!
+
+I need a new goal, my major goal is now complete and I'm looking for something else to do
+
+OpenStack is not a fully feature complete cloud, instances don't have IAM profiles or service accounts, so I may build something for that so they can easily get secrets and authenticate to services.
+
+I need some sort of Object Storage, Openstack has an implimentation of one called Swift but it's not home lab friendly at all. Maybe I'll automate Minio in some way.
+
+I would like a Kubernetes as a Service service to easily spin up and scale clusters within OpenStack.
+
+There's a lot of misc tools and scripts I want to build to make some of the automation a bit more straight forward and simpler.
+
+---
+layout: end
+---
+
+# Thanks You!
+Q & A
+
+Slides: https://github.com/rmb938/open-source-north

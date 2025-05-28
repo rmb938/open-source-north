@@ -285,7 +285,7 @@ layout: two-cols
 layout: center
 ---
 
-![](/images/warpstream_logo.svg)
+<img src="/images/warpstream_logo.svg"/>
 
 [warpstream.com](https://www.warpstream.com/)
 
@@ -650,3 +650,11 @@ layout: end
 
 # Thanks You!
 Q & A
+
+Slides and Preview for OSN tomorrow: 
+
+https://github.com/rmb938/open-source-north
+
+I'll be at the Confluent Booth
+
+Don't miss "But we have AWS at home" at 1PM in ASC Scooters
